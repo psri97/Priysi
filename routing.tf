@@ -1,5 +1,5 @@
 resource "aws_route_table" "terraform-public" {
-  vpc_id = "${aws_vpc.Dev-VPC.id}"
+  vpc_id = aws_vpc.Dev-VPC.id
 
   route {
     cidr_block = "0.0.0.0/0"

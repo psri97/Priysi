@@ -8,9 +8,9 @@ resource "aws_vpc" "Dev-VPC" {
 }
 
 resource "aws_internet_gateway" "default" {
-    vpc_id = "${aws_vpc.Dev-VPC.id}"
-	tags = {
-        Name = "${var.vpc_name}-IGW"
-    }
+  vpc_id = aws_vpc.Dev-VPC.id
+  tags = {
+    Name = "${var.vpc_name}-IGW"
+  }
 }
 
