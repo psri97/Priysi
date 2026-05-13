@@ -1,7 +1,7 @@
 resource "aws_security_group" "allow_all" {
   name        = "allow_all"
   description = "Allow all inbound traffic"
-  vpc_id      = aws_vpc.Dev-VPC.id
+  vpc_id      = aws_vpc.default.id
 
   ingress {
     from_port   = 0
@@ -19,8 +19,5 @@ resource "aws_security_group" "allow_all" {
 
   tags = {
     Name = "web-public-sg"
-  }
-  lifecycle {                  
-    ignore_changes = [ingress]
   }
 }

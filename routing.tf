@@ -1,5 +1,5 @@
 resource "aws_route_table" "terraform-public" {
-  vpc_id = aws_vpc.Dev-VPC.id
+  vpc_id = aws_vpc.default.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -8,6 +8,7 @@ resource "aws_route_table" "terraform-public" {
 
   tags = {
     Name = "${var.Main_Routing_Table}"
+    Env  = var.env
   }
 }
 
