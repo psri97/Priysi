@@ -1,28 +1,30 @@
 resource "aws_route_table" "terraform-public" {
-  vpc_id = aws_vpc.default.id
-
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.default.id
-  }
-
-  tags = {
-    Name = "${var.Main_Routing_Table}"
-    Env  = var.env
-  }
+vpc_id = aws_vpc.default.id
+route {
+cidr_block = "0.0.0.0/0"
+gateway_id = aws_internet_gateway.default.id
+}
+tags = {
+Name = "${var.vpc_name}-Public-RT"
+Env = var.env
+}
+}
+resource "aws_route_table" "terraform-private" {
+vpc_id = aws_vpc.default.id
+tags = {
+Name = "${var.vpc_name}-Private-RT"
+Env = var.env
+}
 }
 
-resource "aws_route_table_association" "terraform-public-subnet1" {
-  subnet_id      = aws_subnet.subnet1-public.id
-  route_table_id = aws_route_table.terraform-public.id
+resource "aws_route_table_association" "public-subnets" {
+count = 3
+subnet_id = element(aws_subnet.public-subnets.*.id,count.index) #Splat syntax
+route_table_id = aws_route_table.terraform-public.id
 }
 
-resource "aws_route_table_association" "terraform-public-subnet2" {
-  subnet_id      = aws_subnet.subnet2-public.id
-  route_table_id = aws_route_table.terraform-public.id
-}
-
-resource "aws_route_table_association" "terraform-public-subnet3" {
-  subnet_id      = aws_subnet.subnet3-public.id
-  route_table_id = aws_route_table.terraform-public.id
+resource "aws_route_table_association" "private-subnets" {
+count = 3
+subnet_id = element(aws_subnet.private-subnets.*.id,count.index) #Splat syntax
+route_table_id = aws_route_table.terraform-private.id
 }
