@@ -1,18 +1,35 @@
-output "vpc_id" {
-value = aws_vpc.default.id
+output "vpc-id" {
+  value = aws_vpc.default.id
 }
-output "public-subnet-1" {
-value = aws_subnet.public-subnets.0.id
+
+output "public-subnet1-id" {
+  value = aws_subnet.Public-Subnets.0.id
 }
-output "public-subnet-2" {
-value = aws_subnet.public-subnets.1.id
+
+output "public-subnet2-id" {
+  value = aws_subnet.Public-Subnets.1.id
 }
-output "public-subnet-3" {
-value = aws_subnet.public-subnets.2.id
+
+output "public-subnet3-id" {
+  value = aws_subnet.Public-Subnets.2.id
 }
-output "all-public-subnets" {
-value = aws_subnet.public-subnets.*.id
+
+output "public-subnets-id" {
+  value = aws_subnet.Public-Subnets.*.id
 }
-output "all-private-subnets" {
-value = aws_subnet.private-subnets.*.id
+
+output "private-subnet1-id" {
+  value = aws_subnet.Private-Subnets.0.id
+}
+
+output "private-subnet2-id" {
+  value = aws_subnet.Private-Subnets.1.id
+}
+
+output "private-subnet3-id" {
+  value = aws_subnet.Private-Subnets.2.id
+}
+
+output "private-subnets-id" {
+  value = aws_subnet.Private-Subnets.*.id
 }

@@ -6,3 +6,4 @@ variable "azs" {}
 variable "key_name" {}
 variable "imagename" {}
 variable "env" {}
+variable "instance_type" {}
