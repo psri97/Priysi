@@ -4,7 +4,7 @@ resource "aws_instance" "private-servers" {
   instance_type               = var.instance_type
   key_name                    = var.key_name
   subnet_id                   = element(aws_subnet.Private-Subnets.*.id, count.index)
-  vpc_security_group_ids      = ["${aws_security_group.allow_all.id}", "${aws_security_group.allow_access_webservers.id}"]
+  vpc_security_group_ids      = ["${aws_security_group.allow_all.id}", "${aws_security_group.allow_access_webservers.id}", "${aws_security_group.app_sg.id}"]
   associate_public_ip_address = false
   tags = {
     Name       = "${var.vpc_name}-${var.env}-PrivateServer-${count.index + 1}"

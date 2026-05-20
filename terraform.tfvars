@@ -8,3 +8,4 @@ private_subnets_cidr = ["10.0.10.0/24", "10.0.20.0/24", "10.0.30.0/24"]
 azs                  = ["us-east-1a", "us-east-1b", "us-east-1c"]
 instance_type        = "t3.micro"
 users                = ["user1", "user2", "user3"]
+users1               = ["user00", "user10", "user11", "user12", "user13"]

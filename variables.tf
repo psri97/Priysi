@@ -8,3 +8,4 @@ variable "imagename" {}
 variable "env" {}
 variable "instance_type" {}
 variable "users" {}
+variable "users1" {}
