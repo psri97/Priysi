@@ -9,3 +9,8 @@ azs                  = ["us-east-1a", "us-east-1b", "us-east-1c"]
 instance_type        = "t3.micro"
 users                = ["user1", "user2", "user3"]
 users1               = ["user00", "user10", "user11", "user12", "user13"]
+amis = {
+  us-east-1 = "ami-08d4ac5b634553e16" # ubuntu20.04LTS
+  us-east-2 = "ami-08d4ac5b634553111" # ubuntu20.04 LTS
+}
+region = "us-east-1"

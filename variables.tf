@@ -9,3 +9,5 @@ variable "env" {}
 variable "instance_type" {}
 variable "users" {}
 variable "users1" {}
+variable "amis" {}
+variable "region" {}

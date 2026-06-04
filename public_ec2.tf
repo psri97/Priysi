@@ -1,6 +1,7 @@
 resource "aws_instance" "public-servers" {
-  count                       = var.env == "PROD" ? 1 : 1
-  ami                         = var.imagename
+  count = var.env == "PROD" ? 1 : 1
+  #   ami                         = var.imagename
+  ami                         = lookup(var.amis, var.region)
   instance_type               = var.instance_type
   key_name                    = var.key_name
   subnet_id                   = element(aws_subnet.Public-Subnets.*.id, count.index)
